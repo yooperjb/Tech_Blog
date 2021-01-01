@@ -6,7 +6,6 @@ class Post extends Model {
 
 };
 
-
 Post.init(
     // requires two objects as arguments
     {

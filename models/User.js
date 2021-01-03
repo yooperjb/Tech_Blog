@@ -3,7 +3,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 // use bcrypt for password hashing
 const bcrypt = require('bcrypt');
-const { beforeCreate } = require('./Post');
+//const { beforeCreate } = require('./Post');
 
 // create the User Model - inherits from Model
 class User extends Model {

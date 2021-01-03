@@ -9,7 +9,7 @@ class Post extends Model {
 Post.init(
     // requires two objects as arguments
     {
-        // Post TABLE column definitions
+        // Post TABLE column definitions schema
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,

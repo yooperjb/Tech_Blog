@@ -50,11 +50,39 @@ router.post('/', (req,res) => {
         });
 });
 
+// POST login route /api/users/login
+router.post('/login', (req, res) => {
+    // expect {email: '', password: ''}
+    User.findOne({
+        where: {
+            email: req.body.email
+        }
+    }).then(dbUserData => {
+        // if user email not found
+        if(!dbUserData) {
+            res.status(400).json({ message: 'No user with that email address!' });
+            return;
+        }
+        // verify user using method from User model - returns true if PW match
+        const validPassword = dbUserData.checkPassword(req.body.password);
+
+        // if password does not match
+        if (!validPassword) {
+            res.status(400).json({ message: "Incorrect password!" });
+            return;
+        }
+        // if password match
+        res.json({ user: dbUserData, message: 'You are now logged in! '});
+    })
+});
+
 // PUT /api/users/1 - edit user
 router.put('/:id', (req,res) => {
      // expects {username:'', email:'', password:''}
      // if req.body has exact key/value pairs to match the model, you can just use `req.body` instead
      User.update(req.body, {
+        // required for using beforeUpdate Hook 
+        individualHooks: true,
          where: {
              id: req.params.id
          }

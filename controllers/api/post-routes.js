@@ -1,15 +1,24 @@
 const router = require('express').Router();
 // need both Post and User models (user makes a post)
-const { Post, User } = require('../../models');
+const { Post, User, Comment } = require('../../models');
 
 // GET /api/posts - all posts
 router.get('/', (req,res) => {
     console.log('===============');
     Post.findAll({
-        attributes: ['id','title','post_text','created_at' ],
         // sort by created_at date/time
         order:[['created_at', 'DESC']],
+        attributes: ['id','title','post_text','created_at' ],
         include: [
+            // include post comments
+            {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'post_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
             {
             model: User,
             attributes: ['username']
@@ -31,6 +40,15 @@ router.get('/:id', (req, res) => {
         },
         attributes: ['id','title','post_text','created_at' ],
         include: [
+             // include post comments
+             {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'post_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
             {
                 model: User,
                 attributes: ['username']

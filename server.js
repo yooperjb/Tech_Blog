@@ -2,10 +2,15 @@ const express = require('express');
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const path = require('path');
+const helpers = require('./utils/helpers');
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create({});
+
+// pass helpers file into handlebars
+const hbs = exphbs.create({ helpers });
+
 // allows connecting to backend
 const session = require('express-session');
+
 // stores sessions into database
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 

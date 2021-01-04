@@ -1,18 +1,5 @@
 
-<article class="post">
-
-    <div class="title">
-        <a href="/post/{{post.id}}">{{post.title}}</a>
-        <span>Posted by {{post.user.username}} on {{post.created_at}} </span>
-    </div>
-    <div class="text">
-        {{post.post_text}}
-    </div>
-    <div class="meta">
-        <a href="/post/{{post.id}}">{{post.comments.length}} comments(s)</a>
-    </div>
-
-</article>
+{{> post-info post}}
 
 {{!-- if user is logged in show comment form --}}
 {{#if loggedIn}}
@@ -27,18 +14,8 @@
 </form>
 {{/if}}
 
-<div class="comments">
-    {{#each post.comments}}
-    <section class="comment">
-        <div class="meta">
-        {{user.username}} on {{created_at}}
-        </div>
-        <div class="text">
-            {{comment_text}}
-        </div>
-    </section>
-    {{/each}}
-</div>
+{{!-- import post comments partial --}}
+{{> comments post.comments}}
 
 {{#if logged}}
 <script src="/javascript/comment.js"></script>

@@ -1,6 +1,7 @@
 const router = require('express').Router();
 // need both Post and User models (user makes a post)
 const { Post, User, Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // GET /api/posts - all posts
 router.get('/', (req,res) => {
@@ -69,12 +70,12 @@ router.get('/:id', (req, res) => {
 });
 
 // POST /api/posts - create new post
-router.post('/', (req,res) => {
-    // expects {title:'',post_text:'', user_id:'' }
+router.post('/',withAuth, (req,res) => {
+    // expects {title:'',post_text:'', user_id:'' } gets user_id from logged in user session
     Post.create({
         title: req.body.title,
         post_text: req.body.post_text,
-        user_id: req.body.user_id
+        user_id: req.session.user_id
     })
         .then(dbPostData => res.json(dbPostData))
         .catch(err => {
@@ -84,7 +85,7 @@ router.post('/', (req,res) => {
 });
 
 // PUT /api/posts:id - update post information
-router.put('/:id', (req,res) => {
+router.put('/:id',withAuth, (req,res) => {
     Post.update(
         {
             title: req.body.title,
@@ -110,7 +111,7 @@ router.put('/:id', (req,res) => {
 });
 
 // DELETE /api/posts:id - delete a single post
-router.delete('/:id', (req,res) => {
+router.delete('/:id',withAuth, (req,res) => {
     Post.destroy({
         where: {
             id: req.params.id

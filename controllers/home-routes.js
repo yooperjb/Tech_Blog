@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
         ]
     })
         .then(dbPostData => {
-            //console.log(dbPostData[0]);
+
             // loop through and serialize all posts
             const posts = dbPostData.map(post => post.get({ plain: true }));
             

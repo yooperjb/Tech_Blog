@@ -1,22 +1,26 @@
 
-{{> post-info post}}
+<div id="single-post">
+    
+    {{> post-info post}}
 
-{{!-- if user is logged in show comment form --}}
-{{#if loggedIn}}
-<form class="comment-form">
-    <div>
-        <textarea name="comment-body"></textarea>
-    </div>
+    {{!-- if user is logged in show comment form --}}
+    {{#if loggedIn}}
+    <form class="comment-form">
+        <div>
+            <textarea name="comment-body"></textarea>
+        </div>
 
-    <div>
-        <button type="submit">add comment</button>
-    </div>
-</form>
-{{/if}}
+        <div>
+            <button type="submit">add comment</button>
+        </div>
+    </form>
+    {{/if}}
 
-{{!-- import post comments partial --}}
-{{> comments post.comments}}
+    {{!-- import post comments partial --}}
+    {{> comments post.comments}}
 
-{{#if logged}}
-<script src="/javascript/comment.js"></script>
-{{/if}}
+    {{#if logged}}
+    <script src="/javascript/comment.js"></script>
+    {{/if}}
+    
+</div>

@@ -1,5 +1,4 @@
 <article>
-    <a href="/dashboard"> &larr; Back to dashboard</a>
     <h2>
         Edit Post
     </h2>
@@ -17,19 +16,21 @@
     </form>
 </article>
 
-{{!-- Comment Form --}}
-<form class="comment-form">
-    <div>
-        <textarea name="comment-body"></textarea>
-    </div>
-
-    <div>
-        <button type="submit">add comment</button>
-    </div>
-</form>
-
 {{!-- import post comments partial --}}
-{{> comments post.comments}}
+<div id="comments">
+    {{> comments post.comments}}
+
+    {{!-- Comment Form --}}
+    <form class="comment-form">
+        <div>
+            <textarea name="comment-body"></textarea>
+        </div>
+
+        <div>
+            <button type="submit">add comment</button>
+        </div>
+    </form>
+</div>
 
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>

@@ -1,6 +1,6 @@
 <section>
     <h2>Welcome {{user.username}}</h2>
-    <h2>Create New Post</h2>
+    <h3>Create New Post</h3>
 
     <form class="new-post-form">
         <div>
@@ -22,7 +22,7 @@
         {{#each posts as |post|}}
         <li>
             {{> post-info post}}
-            <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Post</a>
+            <a href="/dashboard/edit/{{post.id}}" class="edit-link">edit post</a>
         </li>
         {{/each}}
     </ul>

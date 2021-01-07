@@ -1,7 +1,10 @@
 
-<div id="single-post">
     
-    {{> post-info post}}
+{{> post-info post}}
+
+<div id="comments">
+    {{!-- import post comments partial --}}
+    {{> comments post.comments}}
 
     {{!-- if user is logged in show comment form --}}
     {{#if loggedIn}}
@@ -15,12 +18,9 @@
         </div>
     </form>
     {{/if}}
-
-    {{!-- import post comments partial --}}
-    {{> comments post.comments}}
-
-    {{#if logged}}
-    <script src="/javascript/comment.js"></script>
-    {{/if}}
-    
 </div>
+
+{{#if logged}}
+<script src="/javascript/comment.js"></script>
+{{/if}}
+

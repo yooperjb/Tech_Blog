@@ -54,7 +54,6 @@ header {
         rgba(0,0,0,0)
       )50 100;
 }
-
 header h1 {
     font-size: 2em;
     margin-left: 10px;
@@ -67,18 +66,34 @@ header a {
   color: var(--light-blue);
   transition: color .4s;
 }
-
 header a:hover {
   color: white;
 }
-
 nav {
-    margin-right: 10px;
+  margin-right: 10px;
 }
-
 nav a {
   font-size: 1.2em;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  margin: 5px;
+}
+.btn-no-style {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--light-blue);
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  font-weight: normal;
+  transition: color .4s;
+  /* margin-left: 16px; */
+}
+.btn-no-style:hover {
+  background: none;
+  color: white;
 }
 /* end header styles */
 
@@ -87,14 +102,12 @@ main {
     flex: 1;
     padding: 2% 4%;
 }
-
 main h2 {
   border-left: 3px solid white;
   padding-left: 10px;
   color: white;
   font-weight: lighter;
 }
-
 .post-list {
     list-style-type: none;
     margin: 0;
@@ -111,7 +124,6 @@ main h2 {
     align-items: center;
     /* margin: 10px; */
 }
-
 .title a {
   text-decoration: none;
   font-size: 1.2em;
@@ -125,14 +137,12 @@ main h2 {
     border: 2px solid var(--primary-color);
     border-radius: 4px;
   }
-  
 .post .title span {
     font-style: italic;
     font-size: 90%;
     color: white;
     margin: 0 15px; 
 }
-
 .text {
     padding: 15px 10px;
 }
@@ -142,6 +152,12 @@ main h2 {
 #single-post {
   background: var(--light-gray);
   padding: 10px;
+}
+
+#comments {
+  background: var(--light-gray);
+  padding: 10px;
+  border-radius: 2px;
 }
 
 /* login styles */
@@ -159,7 +175,6 @@ h3 {
   color: white;
   text-align: center;
 }
-
 /* end login styles */
 
 button {
@@ -183,6 +198,7 @@ textarea, input {
   border: 1px solid #ccc;
   width: 90%;
   margin-bottom: 5px;
+  height: 30px;
 }
 
 textarea:focus, input:focus {
@@ -196,31 +212,13 @@ textarea {
 }
   
 form > div {
-  margin-bottom: 2%;
+  margin-bottom: 5px;
 }
 
 form label {
   display: block;
   color: white;
   margin: 5px 2px;
-}
-  
-.btn-no-style {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  text-decoration: none;
-  color: #225ca3;
-  font-size: 100%;
-  font-weight: bold;
-  transition: color .1s;
-  margin-left: 16px;
-}
-
-.btn-no-style:hover {
-  background: none;
-  color: #3486eb;
 }
 
 .delete-post-btn {
@@ -234,6 +232,9 @@ form label {
 .edit-link {
   display: block;
   margin: -1.5% 0 2% 0;
+  color: white;
+  text-decoration: none;
+  width: 100px;
 }
 
 .comment-form {

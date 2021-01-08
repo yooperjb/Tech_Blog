@@ -1,14 +1,13 @@
 * {
     box-sizing: border-box;
   }
-
+  /* utility styles */
 :root {
   --primary-color: rgb(115, 115, 141);
   --dark-blue: #003D75;
   --light-blue: #3486eb;
   --light-gray: #d6d6d6;
 }
-/* utility styles */
 body, html {
     height: 100%;
     padding: 0;
@@ -21,7 +20,6 @@ body {
   background-size: cover;
   background-blend-mode: lighten;
 }
-
 .bold {
   font-weight: bold;
 }
@@ -55,11 +53,10 @@ header {
       )50 100;
 }
 header h1 {
-    font-size: 2em;
-    margin-left: 10px;
-    font-weight:lighter;
-    color: var(--light-blue);
-    /* -webkit-text-stroke: 1px white; */
+  font-size: 2em;
+  margin-left: 10px;
+  font-weight:lighter;
+  color: var(--light-blue);
 }
 header a {
   text-decoration: none;
@@ -107,6 +104,13 @@ main h2 {
   padding-left: 10px;
   color: white;
   font-weight: lighter;
+}
+
+h2.welcome {
+  text-align: right;
+  border-right: 3px solid white;
+  border-left: 0;
+  padding-right: 10px;
 }
 .post-list {
     list-style-type: none;
@@ -231,14 +235,15 @@ form label {
 
 .edit-link {
   display: block;
-  margin: -1.5% 0 2% 0;
+  margin: -13px 0 10px 10px;
   color: white;
   text-decoration: none;
   width: 100px;
+  font-style: italic;
 }
 
 .comment-form {
-  margin-bottom: 5%;
+  margin-bottom: 15px;
 }
 
 .comment {

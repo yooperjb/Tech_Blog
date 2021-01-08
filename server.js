@@ -20,7 +20,7 @@ const sess = {
     rolling: true,
     cookie: {
         httpOnly: true,
-        maxAge: 60 * 60 * 1000,
+        maxAge: 60 * 10000, // 10 minutes
         sameSite: 'strict',
     },
     resave: false,
@@ -30,6 +30,7 @@ const sess = {
     })
 };
 
+// initialize express
 const app = express();
 const PORT = process.env.PORT || 3001;
 

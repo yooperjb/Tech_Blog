@@ -5,7 +5,7 @@ async function newFormHandler(event) {
   
     // get title and post text values
     const title = document.querySelector('input[name="post-title"]').value;
-    const post_text = document.querySelector('input[name="post-text"]').value;
+    const post_text = document.querySelector('#post-text').value.trim();
   
     // send values to server
     const response = await fetch(`/api/posts`, {

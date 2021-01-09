@@ -28,6 +28,8 @@ async function signupFormHandler(event) {
         } else {
             alert(response.statusText);
         }
+    } else {
+        alert("Please enter values for all fields.");
     }
 };
 
@@ -56,9 +58,10 @@ async function loginFormHandler(event){
             document.location.replace('/dashboard');
         } else {
             console.log(response.statusText);
-            // alert(response.statusText, "Wrong email or password");
             alert("Wrong Email or Password!");
         }
+    } else {
+        alert("Please enter your email and password.");
     }
 };
 

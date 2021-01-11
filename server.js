@@ -51,6 +51,6 @@ app.use(routes);
 
 // turn on connection to db and server - sync models
 // force: false stops from dropping tables each time
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log('Now listening'));
 });

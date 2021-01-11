@@ -213,6 +213,7 @@ textarea:focus, input:focus {
 textarea {
   min-width: 40%;
   min-height: 100px;
+  width: 100%;
 }
   
 form > div {
@@ -235,7 +236,7 @@ form label {
 
 .edit-link {
   display: block;
-  margin: -13px 0 10px 10px;
+  margin: -18px 0 10px 10px;
   color: white;
   text-decoration: none;
   width: 100px;
